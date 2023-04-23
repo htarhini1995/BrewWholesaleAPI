@@ -7,13 +7,7 @@ namespace BrewWholesaleAPI.Core
     {
         #region Properties
 
-        public static string DbConnectionString { get; set; }
-        public static string DefaultJwtSecretKey { get; }
-        public static string DatabaseType { get; }
-        public static int DefaultJwtTokenExpiration { get; }
-        public static string IdentityAuthorityUrl { get; set; }
-        public static string IdentityClientId { get; set; }
-        public static string IdentityClientSecret { get; set; }
+        public static string? DbConnectionString { get; set; }
 
         #endregion
 

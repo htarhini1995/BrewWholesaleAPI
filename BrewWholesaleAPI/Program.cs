@@ -1,3 +1,4 @@
+using BrewWholesaleAPI.Core;
 using BrewWholesaleAPI.Core.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,7 +11,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<BrewWholesaleAPIDbContext>(options => options.UseInMemoryDatabase("BrewWholesale"));
+
+//BrewWholesaleAPI.Core.Configuration.DbConnectionString = .Get("BrewWholesaleConnection");
+
 
 var app = builder.Build();
 
