@@ -1,6 +1,6 @@
-﻿namespace BrewWholesaleAPI.Models
+﻿namespace BrewWholesaleAPI.Core.Models
 {
-    public class Brewery
+    public class BreweryModel
     {
         public Guid Id { get; set; }
         public string? Name { get; set; }

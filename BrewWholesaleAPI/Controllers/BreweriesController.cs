@@ -1,4 +1,4 @@
-﻿using BrewWholesaleAPI.Data;
+﻿using BrewWholesaleAPI.Core.Data;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BrewWholesaleAPI.Controllers
@@ -7,17 +7,14 @@ namespace BrewWholesaleAPI.Controllers
     [Route("api/[controller]")]
     public class BreweriesController : Controller
     {
-        private readonly BrewWholesaleAPIDbContext dbContext;
-
-        public BreweriesController(BrewWholesaleAPIDbContext dbContext)
-        {
-            this.dbContext = dbContext;
-        }
+        #region Get Methods
 
         [HttpGet]
         public IActionResult GetBreweries()
         {
-            return Ok(dbContext.Breweries.ToList());
-        }
+            return Ok(new Brewery().List());
+        } 
+
+        #endregion
     }
 }
