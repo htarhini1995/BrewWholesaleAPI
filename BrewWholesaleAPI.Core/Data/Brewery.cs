@@ -1,10 +1,11 @@
 ﻿using BrewWholesaleAPI.Core.Interfaces;
 using BrewWholesaleAPI.Core.Models;
 
-namespace BrewWholesaleAPI.Core.Data
-{
-    public partial class Brewery : IDbObject<Brewery>
-    {
+namespace BrewWholesaleAPI.Core.Data;
+
+public partial class Brewery : IDbObject<Brewery>
+ {
+
         #region Properties
 
         public int Id { get; set; }
@@ -17,6 +18,8 @@ namespace BrewWholesaleAPI.Core.Data
 
         public bool? IsDeleted { get; set; }
 
+        public virtual ICollection<Beer> Beers { get; set; } = new List<Beer>();
+
         #endregion
 
         #region Public Methods
@@ -26,8 +29,8 @@ namespace BrewWholesaleAPI.Core.Data
             using (var ctx = Configuration.OpenContext(false))
             {
                 Brewery param = new Brewery() { Id = id };
-                ctx.Brewery.Attach(param);
-                ctx.Brewery.Remove(param);
+                ctx.Breweries.Attach(param);
+                ctx.Breweries.Remove(param);
                 ctx.SaveChanges();
             }
         }
@@ -41,7 +44,7 @@ namespace BrewWholesaleAPI.Core.Data
         {
             using (var ctx = Configuration.OpenContext(false))
             {
-                return ctx.Brewery.FirstOrDefault(t => t.Id == id) ?? new Brewery();
+                return ctx.Breweries.FirstOrDefault(t => t.Id == id) ?? new Brewery();
             }
         }
 
@@ -49,7 +52,7 @@ namespace BrewWholesaleAPI.Core.Data
         {
             using (var ctx = Configuration.OpenContext(false))
             {
-                ctx.Brewery.Add(this);
+                ctx.Breweries.Add(this);
                 ctx.SaveChanges();
             }
         }
@@ -67,7 +70,7 @@ namespace BrewWholesaleAPI.Core.Data
         {
             using (var ctx = Configuration.OpenContext(false))
             {
-                return ctx.Brewery.ToList();
+                return ctx.Breweries.ToList();
             }
         }
 
@@ -136,5 +139,6 @@ namespace BrewWholesaleAPI.Core.Data
         }
 
         #endregion
-    }
+
 }
+

@@ -2,11 +2,10 @@
 {
     internal interface IDbObject<T>
     {
-        internal void Delete(int id);
-        internal void Delete();
-        internal T Find(int id);
-        internal void Insert();
-        internal List<T> List();
-        internal void Update();
+       void Delete(int id);
+       T Find(int id);
+       void Insert();
+       List<T> List();
+       void Update();
     }
 }

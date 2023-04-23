@@ -17,9 +17,9 @@ namespace BrewWholesaleAPI.Core
 
         #region Public Methods
 
-        internal static BrewWholesaleAPIDbContext OpenContext(bool enableChangeTracking = true)
+        internal static BrewWholesaleContext OpenContext(bool enableChangeTracking = true)
         {
-            var ctx = new BrewWholesaleAPIDbContext();
+            var ctx = new BrewWholesaleContext();
             //ctx.database.setcommandtimeout(180);
             if (!enableChangeTracking)
             {
