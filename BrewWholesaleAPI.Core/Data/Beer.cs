@@ -1,4 +1,5 @@
-﻿using BrewWholesaleAPI.Core.Interfaces;
+﻿using BrewWholesaleAPI.Core.Data.Models;
+using BrewWholesaleAPI.Core.Interfaces;
 
 namespace BrewWholesaleAPI.Core.Data;
 
@@ -19,7 +20,7 @@ public partial class Beer : IDbObject<Beer>
 
     public DateTime? CreateDate { get; set; }
 
-    public string? ModifyDate { get; set; }
+    public DateTime? ModifyDate { get; set; }
 
     public bool? IsDeleted { get; set; }
 
@@ -53,7 +54,7 @@ public partial class Beer : IDbObject<Beer>
     {
         using (var ctx = Configuration.OpenContext(false))
         {
-            return ctx.Beers.FirstOrDefault(t => t.Id == id && ( IsDeleted ?? false )) ?? new Beer();
+            return ctx.Beers.FirstOrDefault(t => t.Id == id && !(IsDeleted ?? false )) ?? new Beer();
         }
     }
 
@@ -79,8 +80,84 @@ public partial class Beer : IDbObject<Beer>
     {
         using (var ctx = Configuration.OpenContext(false))
         {
-            return ctx.Beers.Where(t =>(IsDeleted ?? false)).ToList();
+            return ctx.Beers.Where(t => !(t.IsDeleted ?? false)).ToList();
         }
+    }
+
+    #endregion
+
+    #region Internal Methods
+
+    internal static Beer? Insert(BeerModel model)
+    {
+        if (model != null)
+        {
+            var beer = (Beer?)model;
+            beer?.Insert();
+            return beer;
+        }
+        return null;
+    }
+
+    internal static Beer? Update(BeerModel model)
+    {
+        if (model != null)
+        {
+            var beer = (Beer?)model;
+            beer?.Update();
+            return beer;
+        }
+        return null;
+    }
+
+    internal List<Beer> ListByBrewery(int breweryId)
+    {
+        using (var ctx = Configuration.OpenContext(false))
+        {
+            return ctx.Beers.Where(t => (breweryId == t.BreweryId) && !(t.IsDeleted ?? false)).ToList();
+        }
+    } 
+
+    #endregion
+
+    #region Conversion
+
+    public static implicit operator BeerModel?(Beer? item)
+    {
+        BeerModel? retValue = null;
+        if (item != null)
+        {
+            retValue = new BeerModel
+            {
+                Id = item.Id,
+                Name = item.Name,
+                AlcoholAmmount = item.AlcoholAmmount,
+                BreweryId= item.BreweryId,
+                CreateDate = item.CreateDate,
+                ModifyDate = item.ModifyDate,
+                IsDeleted = item.IsDeleted ?? false,
+            };
+        }
+        return retValue;
+    }
+
+    public static implicit operator Beer?(BeerModel? item)
+    {
+        Beer? retValue = null;
+        if (item != null)
+        {
+            retValue = new Beer
+            {
+                Id = item.Id ?? 0,
+                Name = item.Name,
+                AlcoholAmmount = item.AlcoholAmmount,
+                BreweryId = item.BreweryId,
+                CreateDate = item.CreateDate,
+                ModifyDate = item.ModifyDate,
+                IsDeleted = item.IsDeleted ?? false,
+            };
+        }
+        return retValue;
     }
 
     #endregion
