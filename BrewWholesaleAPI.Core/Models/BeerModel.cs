@@ -27,6 +27,6 @@ public partial class BeerModel
 
     public bool? IsDeleted { get; set; }
 
-    public Brewery? Brewery { get; set; }
+    public virtual Brewery? Brewery { get; set; }
 
 }

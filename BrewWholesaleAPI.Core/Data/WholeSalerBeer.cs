@@ -1,4 +1,6 @@
-﻿using BrewWholesaleAPI.Core.Interfaces;
+﻿using BrewWholesaleAPI.Core.Data.Models;
+using BrewWholesaleAPI.Core.Interfaces;
+using BrewWholesaleAPI.Core.Models;
 
 namespace BrewWholesaleAPI.Core.Data;
 
@@ -20,7 +22,6 @@ public partial class WholeSalerBeer : IDbObject<WholeSalerBeer>
     public virtual Wholesaler? Wholesaler { get; set; }
 
     #endregion
-
 
     #region Public Methods
 
@@ -72,6 +73,42 @@ public partial class WholeSalerBeer : IDbObject<WholeSalerBeer>
         {
             return ctx.WholeSalerBeers.ToList();
         }
+    }
+
+    #endregion
+
+    #region Conversion
+
+    public static implicit operator WholeSalerBeerModel?(WholeSalerBeer? item)
+    {
+        WholeSalerBeerModel? retValue = null;
+        if (item != null)
+        {
+            retValue = new WholeSalerBeerModel
+            {
+                Id = item.Id,
+                BeerId = item.BeerId,
+                WholesalerId = item.WholesalerId,
+                Quantity = item.Quantity,
+            };
+        }
+        return retValue;
+    }
+
+    public static implicit operator WholeSalerBeer?(WholeSalerBeerModel? item)
+    {
+        WholeSalerBeer? retValue = null;
+        if (item != null)
+        {
+            retValue = new WholeSalerBeer
+            {
+                Id = item.Id ?? 0,
+                BeerId = item.BeerId,
+                WholesalerId = item.WholesalerId,
+                Quantity = item.Quantity,
+            };
+        }
+        return retValue;
     }
 
     #endregion

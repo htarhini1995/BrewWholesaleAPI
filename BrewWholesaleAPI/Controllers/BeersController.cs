@@ -81,6 +81,24 @@ namespace BrewWholesaleAPI.Controllers
             }
         }
 
+        [HttpPost]
+        public IActionResult UpdateBeerQuantity(WholeSalerBeerModel model)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    return Ok(ManageBeers.UpdateBeerQuantity(model));
+                }
+                return BadRequest(ModelState);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
+
         #endregion
     }
 }

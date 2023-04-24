@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace BrewWholesaleAPI.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[Action]")]
     public class BreweriesController : Controller
     {
         #region Get Methods

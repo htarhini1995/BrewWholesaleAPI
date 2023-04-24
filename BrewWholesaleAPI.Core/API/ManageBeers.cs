@@ -55,8 +55,27 @@ namespace BrewWholesaleAPI.Core.API
             if (beer != null)
             {
                 beer.IsDeleted = true;
-                beer.Update(); 
+                beer.Update();
             }
+        }
+
+        public static WholeSalerBeer? UpdateBeerQuantity(WholeSalerBeerModel model)
+        {
+            if (model != null)
+            {
+                WholeSalerBeer? quantity = (WholeSalerBeer?)model;
+
+                if (quantity?.Id == 0)
+                {
+                    quantity?.Insert();
+                }
+                else
+                {
+                    quantity?.Update();
+                }
+                return quantity;
+            }
+            return null;
         }
 
         #endregion
