@@ -5,15 +5,20 @@ namespace BrewWholesaleAPI.Core
 {
     public static class Configuration
     {
+
         #region Properties
 
         public static string? DbConnectionString { get; set; }
 
         #endregion
 
+        #region Ctor
+
         static Configuration()
         {
-        }
+        } 
+
+        #endregion
 
         #region Public Methods
 
@@ -29,5 +34,6 @@ namespace BrewWholesaleAPI.Core
         }
 
         #endregion
+
     }
 }

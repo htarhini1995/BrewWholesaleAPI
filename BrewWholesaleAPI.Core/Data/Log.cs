@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace BrewWholesaleAPI.Core.Data;
 
@@ -13,5 +14,13 @@ public partial class Log
 
     public string? Exception { get; set; }
 
-    public string? FullExeption { get; set; }
+    public void Insert()
+    {
+        using (var ctx = Configuration.OpenContext(false))
+        {
+            ctx.Logs.Add(this);
+            ctx.SaveChanges();
+        }
+    }
+
 }

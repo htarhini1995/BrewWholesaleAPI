@@ -31,7 +31,7 @@ namespace BrewWholesaleAPI.Controllers
             }
             catch (Exception ex)
             {
-
+                ManageLogs.InsertLog(ex);
                 return BadRequest(ex.Message);
             }
 

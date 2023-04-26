@@ -13,7 +13,15 @@ namespace BrewWholesaleAPI.Controllers
         [HttpGet]
         public IActionResult GetBreweries()
         {
-            return Ok(ManageBreweries.GetList());
+            try
+            {
+                return Ok(ManageBreweries.GetList());
+            }
+            catch (Exception ex)
+            {
+                ManageLogs.InsertLog(ex);
+                return BadRequest(ex.Message);
+            }
         }
 
         #endregion
@@ -33,7 +41,7 @@ namespace BrewWholesaleAPI.Controllers
             }
             catch (Exception ex)
             {
-
+                ManageLogs.InsertLog(ex);
                 return BadRequest(ex.Message);
             }
 

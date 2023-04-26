@@ -1,15 +1,11 @@
 ﻿using BrewWholesaleAPI.Core.Data;
 using BrewWholesaleAPI.Core.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BrewWholesaleAPI.Core.API
 {
     public static class ManageBreweries
     {
+
         #region Public Methods
 
         public static List<BreweryModel?> GetList()

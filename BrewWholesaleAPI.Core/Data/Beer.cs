@@ -54,7 +54,7 @@ public partial class Beer : IDbObject<Beer>
     {
         using (var ctx = Configuration.OpenContext(false))
         {
-            return ctx.Beers.FirstOrDefault(t => t.Id == id && !(t.IsDeleted ?? false )) ?? new Beer();
+            return ctx.Beers.FirstOrDefault(t => t.Id == id && !(t.IsDeleted ?? false)) ?? new Beer();
         }
     }
 
@@ -140,7 +140,7 @@ public partial class Beer : IDbObject<Beer>
                 Id = item.Id,
                 Name = item.Name,
                 AlcoholAmmount = item.AlcoholAmmount,
-                BreweryId= item.BreweryId,
+                BreweryId = item.BreweryId,
                 CreateDate = item.CreateDate,
                 ModifyDate = item.ModifyDate,
                 IsDeleted = item.IsDeleted ?? false,

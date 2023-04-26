@@ -77,11 +77,11 @@ public partial class Discount : IDbObject<Discount>
     {
         using (var ctx = Configuration.OpenContext(false))
         {
-            var list = new Discount().List().OrderBy(t=>t.Quantity).ToList();
-             var retVal = list.FirstOrDefault();
-            foreach(var item in list)
+            var list = new Discount().List().OrderBy(t => t.Quantity).ToList();
+            var retVal = list.FirstOrDefault();
+            foreach (var item in list)
             {
-                if(quantity< item.Quantity)
+                if (quantity < item.Quantity)
                 {
                     break;
                 }

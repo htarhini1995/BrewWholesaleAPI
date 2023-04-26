@@ -45,7 +45,7 @@ public partial class BeerSale : IDbObject<BeerSale>
     {
         using (var ctx = Configuration.OpenContext(false))
         {
-            return ctx.BeerSales.FirstOrDefault(t => t.Id == id ) ?? new BeerSale();
+            return ctx.BeerSales.FirstOrDefault(t => t.Id == id) ?? new BeerSale();
         }
     }
 

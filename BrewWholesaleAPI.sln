@@ -5,7 +5,12 @@ VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrewWholesaleAPI", "BrewWholesaleAPI\BrewWholesaleAPI.csproj", "{01D3DF95-C225-40DC-A3A1-5E345B2820D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrewWholesaleAPI.Core", "BrewWholesaleAPI.Core\BrewWholesaleAPI.Core.csproj", "{9CACF3DF-ADD8-4AE6-9E58-757F168B742F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrewWholesaleAPI.Core", "BrewWholesaleAPI.Core\BrewWholesaleAPI.Core.csproj", "{9CACF3DF-ADD8-4AE6-9E58-757F168B742F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{768EE327-DB83-40A7-A612-4FF5E0B19784}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

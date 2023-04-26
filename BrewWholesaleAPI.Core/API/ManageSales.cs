@@ -3,7 +3,6 @@ using BrewWholesaleAPI.Core.Data;
 using BrewWholesaleAPI.Core.Data.Models;
 using BrewWholesaleAPI.Core.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Text.RegularExpressions;
 
 namespace BrewWholesaleAPI.Core.API
 {
@@ -51,7 +50,7 @@ namespace BrewWholesaleAPI.Core.API
             return totalPrice;
         }
 
-        private static SaleValidationModel ValidateQuantity(SaleModel model, ref SaleValidationModel validation)
+        private static SaleValidationModel ValidateQuantity(SaleModel? model, ref SaleValidationModel validation)
         {
             if (model?.WholesalerId != 0)
             {
@@ -126,7 +125,7 @@ namespace BrewWholesaleAPI.Core.API
 
                     return model;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     transaction.Rollback();
                     throw;

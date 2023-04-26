@@ -1,6 +1,5 @@
 ﻿using BrewWholesaleAPI.Core.Data.Models;
 using BrewWholesaleAPI.Core.Interfaces;
-using BrewWholesaleAPI.Core.Models;
 
 namespace BrewWholesaleAPI.Core.Data;
 
@@ -79,7 +78,7 @@ public partial class WholeSalerBeer : IDbObject<WholeSalerBeer>
     {
         using (var ctx = Configuration.OpenContext(false))
         {
-            return ctx.WholeSalerBeers.Where(t=>t.WholesalerId == wholeSalerId).ToList();
+            return ctx.WholeSalerBeers.Where(t => t.WholesalerId == wholeSalerId).ToList();
         }
     }
 

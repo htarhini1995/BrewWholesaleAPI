@@ -4,141 +4,141 @@ using BrewWholesaleAPI.Core.Models;
 namespace BrewWholesaleAPI.Core.Data;
 
 public partial class Brewery : IDbObject<Brewery>
- {
+{
 
-        #region Properties
+    #region Properties
 
-        public int Id { get; set; }
+    public int Id { get; set; }
 
-        public string? Name { get; set; }
+    public string? Name { get; set; }
 
-        public DateTime? CreateDate { get; set; }
+    public DateTime? CreateDate { get; set; }
 
-        public DateTime? ModifyDate { get; set; }
+    public DateTime? ModifyDate { get; set; }
 
-        public bool? IsDeleted { get; set; }
+    public bool? IsDeleted { get; set; }
 
-        public virtual ICollection<Beer> Beers { get; set; } = new List<Beer>();
+    public virtual ICollection<Beer> Beers { get; set; } = new List<Beer>();
 
-        #endregion
+    #endregion
 
-        #region Public Methods
+    #region Public Methods
 
-        public void Delete(int id)
+    public void Delete(int id)
+    {
+        using (var ctx = Configuration.OpenContext(false))
         {
-            using (var ctx = Configuration.OpenContext(false))
-            {
-                Brewery param = new Brewery() { Id = id };
-                ctx.Breweries.Attach(param);
-                ctx.Breweries.Remove(param);
-                ctx.SaveChanges();
-            }
+            Brewery param = new Brewery() { Id = id };
+            ctx.Breweries.Attach(param);
+            ctx.Breweries.Remove(param);
+            ctx.SaveChanges();
         }
+    }
 
-        public void Delete()
+    public void Delete()
+    {
+        this.Delete(this.Id);
+    }
+
+    public Brewery Find(int id)
+    {
+        using (var ctx = Configuration.OpenContext(false))
         {
-            this.Delete(this.Id);
+            return ctx.Breweries.FirstOrDefault(t => t.Id == id) ?? new Brewery();
         }
+    }
 
-        public Brewery Find(int id)
+    public void Insert()
+    {
+        using (var ctx = Configuration.OpenContext(false))
         {
-            using (var ctx = Configuration.OpenContext(false))
-            {
-                return ctx.Breweries.FirstOrDefault(t => t.Id == id) ?? new Brewery();
-            }
+            ctx.Breweries.Add(this);
+            ctx.SaveChanges();
         }
+    }
 
-        public void Insert()
+    public void Update()
+    {
+        using (var ctx = Configuration.OpenContext(false))
         {
-            using (var ctx = Configuration.OpenContext(false))
-            {
-                ctx.Breweries.Add(this);
-                ctx.SaveChanges();
-            }
+            ctx.Entry(this).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            ctx.SaveChanges();
         }
+    }
 
-        public void Update()
+    public List<Brewery> List()
+    {
+        using (var ctx = Configuration.OpenContext(false))
         {
-            using (var ctx = Configuration.OpenContext(false))
-            {
-                ctx.Entry(this).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-                ctx.SaveChanges();
-            }
+            return ctx.Breweries.ToList();
         }
+    }
 
-        public List<Brewery> List()
+    #endregion
+
+    #region Internal Methods
+
+    internal static Brewery? Insert(BreweryModel model)
+    {
+        if (model != null)
         {
-            using (var ctx = Configuration.OpenContext(false))
-            {
-                return ctx.Breweries.ToList();
-            }
+            var brewery = (Brewery?)model;
+            brewery?.Insert();
+            return brewery;
         }
+        return null;
+    }
 
-        #endregion
-
-        #region Internal Methods
-
-        internal static Brewery? Insert(BreweryModel model)
+    internal static Brewery? Update(BreweryModel model)
+    {
+        if (model != null)
         {
-            if (model != null)
-            {
-                var brewery = (Brewery?)model;
-                brewery?.Insert();
-                return brewery;
-            }
-            return null;
+            var brewery = (Brewery?)model;
+            brewery?.Update();
+            return brewery;
         }
+        return null;
+    }
 
-        internal static Brewery? Update(BreweryModel model)
+    #endregion
+
+    #region Conversion
+
+    public static implicit operator BreweryModel?(Brewery? item)
+    {
+        BreweryModel? retValue = null;
+        if (item != null)
         {
-            if (model != null)
+            retValue = new BreweryModel
             {
-                var brewery = (Brewery?)model;
-                brewery?.Update();
-                return brewery;
-            }
-            return null;
-        } 
-
-        #endregion
-
-        #region Conversion
-
-        public static implicit operator BreweryModel?(Brewery? item)
-        {
-            BreweryModel? retValue = null;
-            if (item != null)
-            {
-                retValue = new BreweryModel
-                {
-                    Id = item.Id,
-                    Name = item.Name,
-                    CreateDate = item.CreateDate,
-                    ModifyDate = item.ModifyDate,
-                    IsDeleted = item.IsDeleted,
-                };
-            }
-            return retValue;
+                Id = item.Id,
+                Name = item.Name,
+                CreateDate = item.CreateDate,
+                ModifyDate = item.ModifyDate,
+                IsDeleted = item.IsDeleted,
+            };
         }
+        return retValue;
+    }
 
-        public static implicit operator Brewery?(BreweryModel? item)
+    public static implicit operator Brewery?(BreweryModel? item)
+    {
+        Brewery? retValue = null;
+        if (item != null)
         {
-            Brewery? retValue= null;
-            if (item != null)
+            retValue = new Brewery
             {
-                retValue = new Brewery
-                {
-                    Id =  item.Id ?? 0,
-                    Name = item.Name,
-                    CreateDate = item.CreateDate,
-                    ModifyDate = item.ModifyDate,
-                    IsDeleted = item.IsDeleted
-                };
-            }
-            return retValue;
+                Id = item.Id ?? 0,
+                Name = item.Name,
+                CreateDate = item.CreateDate,
+                ModifyDate = item.ModifyDate,
+                IsDeleted = item.IsDeleted
+            };
         }
+        return retValue;
+    }
 
-        #endregion
+    #endregion
 
 }
 
