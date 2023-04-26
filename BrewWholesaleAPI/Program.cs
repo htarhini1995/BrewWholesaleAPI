@@ -11,6 +11,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+var configuration = new ConfigurationBuilder().AddJsonFile($"appsettings.json");
+var config = configuration.Build();
+Configuration.DbConnectionString = config.GetConnectionString("BrewWholesaleConnection");
 
 //BrewWholesaleAPI.Core.Configuration.DbConnectionString = .Get("BrewWholesaleConnection");
 

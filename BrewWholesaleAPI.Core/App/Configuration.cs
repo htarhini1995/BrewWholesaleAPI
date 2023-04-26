@@ -20,7 +20,7 @@ namespace BrewWholesaleAPI.Core
         internal static BrewWholesaleContext OpenContext(bool enableChangeTracking = true)
         {
             var ctx = new BrewWholesaleContext();
-            //ctx.database.setcommandtimeout(180);
+            ctx.Database.SetCommandTimeout(180);
             if (!enableChangeTracking)
             {
                 ctx.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;

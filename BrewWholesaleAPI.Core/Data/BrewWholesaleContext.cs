@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 namespace BrewWholesaleAPI.Core.Data
 {
     public partial class BrewWholesaleContext : DbContext
-    { 
+    {
         public BrewWholesaleContext()
         {
         }
@@ -31,7 +31,7 @@ namespace BrewWholesaleAPI.Core.Data
         public virtual DbSet<Wholesaler> Wholesalers { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-            => optionsBuilder.UseSqlServer("Server=DESKTOP-N4P0GKT\\SQLEXPRESS;Database=BrewWholesale;MultipleActiveResultSets=true;TrustServerCertificate=True;Integrated Security=False;User=Hussein;Password=SA;");
+            => optionsBuilder.UseSqlServer(string.IsNullOrEmpty(Configuration.DbConnectionString) ? "Server=DESKTOP-N4P0GKT\\SQLEXPRESS;Database=BrewWholesale;MultipleActiveResultSets=true;TrustServerCertificate=True;Integrated Security=False;User=Hussein;Password=SA;" : Configuration.DbConnectionString);
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
