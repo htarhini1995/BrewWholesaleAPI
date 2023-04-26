@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace BrewWholesaleAPI.Core.Data.Models;
+﻿namespace BrewWholesaleAPI.Core.Data.Models;
 
 public partial class DiscountModel
 {

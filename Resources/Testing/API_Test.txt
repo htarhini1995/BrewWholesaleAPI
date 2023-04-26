@@ -1,0 +1,251 @@
+Add Beer:
+
+{
+  "id": 0,
+  "name": "Hiniken",
+  "alcoholAmmount": 3.54,
+  "price": 3,
+  "breweryId": 1
+
+}
+
+
+Add Qty :
+
+{
+  "id": 0,
+  "beerId": 0,
+  "wholesalerId": 0,
+  "quantity": 0
+}
+
+
+sale
+
+{
+  "id": 0,
+  "wholesalerId": 0,
+  "discountId": 0,
+  "totalPrice": 0,
+  "beerSales": [
+    {
+      "id": 0,
+      "beerId": 2147483647,
+      "saleId": 0,
+      "quantity": 2147483647,
+      "price": 0,
+      "beer": {
+        "id": 0,
+        "name": "string",
+        "alcoholAmmount": 0,
+        "price": 0,
+        "breweryId": 0,
+        "createDate": "2023-04-24T11:16:59.864Z",
+        "modifyDate": "2023-04-24T11:16:59.864Z",
+        "isDeleted": true,
+        "brewery": {
+          "id": 0,
+          "name": "string",
+          "createDate": "2023-04-24T11:16:59.864Z",
+          "modifyDate": "2023-04-24T11:16:59.864Z",
+          "isDeleted": true,
+          "beers": [
+            {
+              "id": 0,
+              "name": "string",
+              "alcoholAmmount": 0,
+              "price": 0,
+              "breweryId": 0,
+              "createDate": "2023-04-24T11:16:59.864Z",
+              "modifyDate": "2023-04-24T11:16:59.864Z",
+              "isDeleted": true,
+              "beerSales": [
+                {
+                  "id": 0,
+                  "beerId": 0,
+                  "saleId": 0,
+                  "quantity": 0,
+                  "price": 0,
+                  "beer": "string",
+                  "sale": {
+                    "id": 0,
+                    "wholesalerId": 0,
+                    "discountId": 0,
+                    "totalPrice": 0,
+                    "beerSales": [
+                      "string"
+                    ],
+                    "discount": {
+                      "id": 0,
+                      "quantity": 0,
+                      "amount": 0,
+                      "sales": [
+                        "string"
+                      ]
+                    },
+                    "wholesaler": {
+                      "id": 0,
+                      "name": "string",
+                      "createDate": "2023-04-24T11:16:59.864Z",
+                      "modifyDate": "2023-04-24T11:16:59.864Z",
+                      "isDeleted": true,
+                      "sales": [
+                        "string"
+                      ],
+                      "wholeSalerBeers": [
+                        "string"
+                      ]
+                    }
+                  }
+                }
+              ],
+              "brewery": "string",
+              "wholeSalerBeers": [
+                {
+                  "id": 0,
+                  "beerId": 0,
+                  "wholesalerId": 0,
+                  "quantity": 0,
+                  "beer": "string",
+                  "wholesaler": {
+                    "id": 0,
+                    "name": "string",
+                    "createDate": "2023-04-24T11:16:59.864Z",
+                    "modifyDate": "2023-04-24T11:16:59.864Z",
+                    "isDeleted": true,
+                    "sales": [
+                      "string"
+                    ],
+                    "wholeSalerBeers": [
+                      "string"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "sale": "string"
+    }
+  ],
+  "discount": {
+    "id": 0,
+    "quantity": 0,
+    "amount": 0,
+    "sales": [
+      "string"
+    ]
+  },
+  "wholesaler": {
+    "id": 0,
+    "name": "string",
+    "createDate": "2023-04-24T11:16:59.864Z",
+    "modifyDate": "2023-04-24T11:16:59.864Z",
+    "isDeleted": true,
+    "sales": [
+      "string"
+    ],
+    "wholeSalerBeers": [
+      {
+        "id": 0,
+        "beerId": 2147483647,
+        "wholesalerId": 0,
+        "quantity": 0,
+        "beer": {
+          "id": 0,
+          "name": "string",
+          "alcoholAmmount": 0,
+          "price": 0,
+          "breweryId": 0,
+          "createDate": "2023-04-24T11:16:59.864Z",
+          "modifyDate": "2023-04-24T11:16:59.864Z",
+          "isDeleted": true,
+          "brewery": {
+            "id": 0,
+            "name": "string",
+            "createDate": "2023-04-24T11:16:59.864Z",
+            "modifyDate": "2023-04-24T11:16:59.864Z",
+            "isDeleted": true,
+            "beers": [
+              {
+                "id": 0,
+                "name": "string",
+                "alcoholAmmount": 0,
+                "price": 0,
+                "breweryId": 0,
+                "createDate": "2023-04-24T11:16:59.864Z",
+                "modifyDate": "2023-04-24T11:16:59.864Z",
+                "isDeleted": true,
+                "beerSales": [
+                  {
+                    "id": 0,
+                    "beerId": 0,
+                    "saleId": 0,
+                    "quantity": 0,
+                    "price": 0,
+                    "beer": "string",
+                    "sale": {
+                      "id": 0,
+                      "wholesalerId": 0,
+                      "discountId": 0,
+                      "totalPrice": 0,
+                      "beerSales": [
+                        "string"
+                      ],
+                      "discount": {
+                        "id": 0,
+                        "quantity": 0,
+                        "amount": 0,
+                        "sales": [
+                          "string"
+                        ]
+                      },
+                      "wholesaler": {
+                        "id": 0,
+                        "name": "string",
+                        "createDate": "2023-04-24T11:16:59.864Z",
+                        "modifyDate": "2023-04-24T11:16:59.864Z",
+                        "isDeleted": true,
+                        "sales": [
+                          "string"
+                        ],
+                        "wholeSalerBeers": [
+                          "string"
+                        ]
+                      }
+                    }
+                  }
+                ],
+                "brewery": "string",
+                "wholeSalerBeers": [
+                  {
+                    "id": 0,
+                    "beerId": 0,
+                    "wholesalerId": 0,
+                    "quantity": 0,
+                    "beer": "string",
+                    "wholesaler": {
+                      "id": 0,
+                      "name": "string",
+                      "createDate": "2023-04-24T11:16:59.864Z",
+                      "modifyDate": "2023-04-24T11:16:59.864Z",
+                      "isDeleted": true,
+                      "sales": [
+                        "string"
+                      ],
+                      "wholeSalerBeers": [
+                        "string"
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "wholesaler": "string"
+      }
+    ]
+  }
+}

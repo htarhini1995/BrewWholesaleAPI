@@ -12,6 +12,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{EB7EB7CE-A0F0-4A1D-9BB4-46F2BCD4E92D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{64379D79-1075-42B5-AD17-3332CE0D245B}"
+	ProjectSection(SolutionItems) = preProject
+		Resources\DataBase\BrewWholesale = Resources\DataBase\BrewWholesale
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{2069AEA3-BAC3-4E3D-9406-4C85266E8D06}"
+	ProjectSection(SolutionItems) = preProject
+		Resources\Testing\API_Test.txt = Resources\Testing\API_Test.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +41,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{64379D79-1075-42B5-AD17-3332CE0D245B} = {EB7EB7CE-A0F0-4A1D-9BB4-46F2BCD4E92D}
+		{2069AEA3-BAC3-4E3D-9406-4C85266E8D06} = {EB7EB7CE-A0F0-4A1D-9BB4-46F2BCD4E92D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0E1C13AD-A5EB-4352-9007-7074FE3AC932}

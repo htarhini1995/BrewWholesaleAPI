@@ -33,11 +33,11 @@ namespace BrewWholesaleAPI.Controllers
         {
             try
             {
-                if(ModelState.IsValid)
+                if (ModelState.IsValid)
                 {
                     return Ok(ManageBreweries.Save(model));
                 }
-                return  BadRequest(ModelState); 
+                return BadRequest(ModelState);
             }
             catch (Exception ex)
             {

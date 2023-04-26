@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BrewWholesaleAPI.Core.Data;
+﻿namespace BrewWholesaleAPI.Core.Data;
 
 public partial class Log
 {

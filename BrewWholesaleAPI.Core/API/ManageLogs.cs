@@ -1,9 +1,5 @@
 ﻿using BrewWholesaleAPI.Core.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace BrewWholesaleAPI.Core.API
 {
@@ -30,7 +26,7 @@ namespace BrewWholesaleAPI.Core.API
                 Exception = sb.ToString()
             };
             log.Insert();
-        } 
+        }
 
         #endregion
 

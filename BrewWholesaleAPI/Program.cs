@@ -1,5 +1,4 @@
 using BrewWholesaleAPI.Core;
-using BrewWholesaleAPI.Core.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

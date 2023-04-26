@@ -20,7 +20,7 @@ namespace BrewWholesaleAPI.Core.API
 
                 BreweryModel? brewery = new BreweryModel();
 
-                if ((model.Id?? 0) == 0)
+                if ((model.Id ?? 0) == 0)
                 {
                     model.CreateDate = DateTime.Now;
                     brewery = Brewery.Insert(model);
@@ -33,7 +33,7 @@ namespace BrewWholesaleAPI.Core.API
                 return brewery;
             }
             return null;
-        } 
+        }
 
         #endregion
 

@@ -1,5 +1,4 @@
-﻿using BrewWholesaleAPI.Core.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace BrewWholesaleAPI.Core.Data
 {

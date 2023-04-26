@@ -16,7 +16,7 @@ namespace BrewWholesaleAPI.Core
 
         static Configuration()
         {
-        } 
+        }
 
         #endregion
 
