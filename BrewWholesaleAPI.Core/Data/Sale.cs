@@ -13,7 +13,9 @@ public partial class Sale : IDbObject<Sale>
 
     public int? DiscountId { get; set; }
 
-    public double? TotalPrice { get; set; }
+    public decimal? TotalPrice { get; set; }
+
+    public decimal? TotalDiscountedPrice { get; set; }
 
     public virtual ICollection<BeerSale> BeerSales { get; set; } = new List<BeerSale>();
 

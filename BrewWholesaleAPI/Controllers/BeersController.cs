@@ -1,6 +1,5 @@
 ﻿using BrewWholesaleAPI.Core.API;
 using BrewWholesaleAPI.Core.Data.Models;
-using BrewWholesaleAPI.Core.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BrewWholesaleAPI.Controllers

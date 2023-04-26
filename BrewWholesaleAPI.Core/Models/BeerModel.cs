@@ -16,7 +16,7 @@ public partial class BeerModel
     public double? AlcoholAmmount { get; set; }
 
     [Required]
-    public int? Price { get; set; }
+    public decimal? Price { get; set; }
 
     [Required]
     public int? BreweryId { get; set; }

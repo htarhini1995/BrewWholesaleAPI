@@ -101,8 +101,6 @@ namespace BrewWholesaleAPI.Core.Data
             {
                 entity.ToTable("Sale");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.HasOne(d => d.Discount).WithMany(p => p.Sales)
                     .HasForeignKey(d => d.DiscountId)
                     .HasConstraintName("FK_Sale_Discount");

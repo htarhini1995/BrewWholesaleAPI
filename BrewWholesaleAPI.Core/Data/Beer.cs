@@ -14,7 +14,7 @@ public partial class Beer : IDbObject<Beer>
 
     public double? AlcoholAmmount { get; set; }
 
-    public int? Price { get; set; }
+    public decimal? Price { get; set; }
 
     public int? BreweryId { get; set; }
 
@@ -54,7 +54,7 @@ public partial class Beer : IDbObject<Beer>
     {
         using (var ctx = Configuration.OpenContext(false))
         {
-            return ctx.Beers.FirstOrDefault(t => t.Id == id && !(IsDeleted ?? false )) ?? new Beer();
+            return ctx.Beers.FirstOrDefault(t => t.Id == id && !(t.IsDeleted ?? false )) ?? new Beer();
         }
     }
 
@@ -116,7 +116,15 @@ public partial class Beer : IDbObject<Beer>
         {
             return ctx.Beers.Where(t => (breweryId == t.BreweryId) && !(t.IsDeleted ?? false)).ToList();
         }
-    } 
+    }
+
+    public static Beer? GetPrice(int id)
+    {
+        using (var ctx = Configuration.OpenContext(false))
+        {
+            return ctx.Beers.FirstOrDefault(t => t.Id == id && !(t.IsDeleted ?? false));
+        }
+    }
 
     #endregion
 

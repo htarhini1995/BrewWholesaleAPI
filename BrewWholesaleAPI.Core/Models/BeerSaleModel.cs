@@ -1,21 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace BrewWholesaleAPI.Core.Data.Models;
 
 public partial class BeerSaleModel
 {
-    public int Id { get; set; }
+    public int? Id { get; set; }
 
+    [Required]
+    [Range(1, int.MaxValue)]
     public int? BeerId { get; set; }
 
-    public int? SaleId { get; set; }
 
+    [Required]
+    [Range(1, int.MaxValue)]
     public int? Quantity { get; set; }
 
-    public double? Price { get; set; }
 
-    public virtual BeerModel? Beer { get; set; }
-
-    public virtual SaleModel? Sale { get; set; }
 }

@@ -15,7 +15,7 @@ public partial class BeerSale : IDbObject<BeerSale>
 
     public int? Quantity { get; set; }
 
-    public double? Price { get; set; }
+    public decimal? Price { get; set; }
 
     public virtual Beer? Beer { get; set; }
 

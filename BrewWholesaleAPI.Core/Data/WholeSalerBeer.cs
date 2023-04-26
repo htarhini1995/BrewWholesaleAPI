@@ -75,6 +75,14 @@ public partial class WholeSalerBeer : IDbObject<WholeSalerBeer>
         }
     }
 
+    public List<WholeSalerBeer> ListByWholeSaler(int wholeSalerId)
+    {
+        using (var ctx = Configuration.OpenContext(false))
+        {
+            return ctx.WholeSalerBeers.Where(t=>t.WholesalerId == wholeSalerId).ToList();
+        }
+    }
+
     #endregion
 
     #region Conversion

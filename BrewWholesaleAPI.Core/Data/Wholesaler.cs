@@ -41,11 +41,11 @@ public partial class Wholesaler : IDbObject<Wholesaler>
         this.Delete(this.Id);
     }
 
-    public Wholesaler Find(int id)
+    public Wholesaler? Find(int id)
     {
         using (var ctx = Configuration.OpenContext(false))
         {
-            return ctx.Wholesalers.FirstOrDefault(t => t.Id == id && (IsDeleted ?? false)) ?? new Wholesaler();
+            return ctx.Wholesalers.FirstOrDefault(t => t.Id == id && !(t.IsDeleted ?? false));
         }
     }
 
@@ -71,7 +71,7 @@ public partial class Wholesaler : IDbObject<Wholesaler>
     {
         using (var ctx = Configuration.OpenContext(false))
         {
-            return ctx.Wholesalers.Where(t => (IsDeleted ?? false)).ToList();
+            return ctx.Wholesalers.Where(t => !(t.IsDeleted ?? false)).ToList();
         }
     }
 
